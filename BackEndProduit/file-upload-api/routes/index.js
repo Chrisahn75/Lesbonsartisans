@@ -13,8 +13,8 @@ router.post('/upload', (req, res, next) => {
     return res.status(400).send('Pas de fichiers!');
   }
   console.log(fileUpload);
-  fileUpload.mv('./public/upload/TextTrackList.jpg', (err)=> {
-    if(err) {
+  fileUpload.mv('./public/upload/' + fileUpload.name, (err)=> {
+    if (err) {
       return res.status(500).send(err);
     } else {
       res.send("uploadé!")
